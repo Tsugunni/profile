@@ -1,83 +1,60 @@
-<div class="wrapper">
-  <div>
-    <section class="content">
-      <div class="container-fluid">
-        <div class="row">
+<!-- post header -->
+<div class="card-header p-2">
+  <ul class="nav nav-pills">
+    <li class="nav-item"><a class="nav-link" href=<%= posts_path %> data-toggle="tab">Timeline</a></li>
+    <li class="nav-item"><a class="nav-link active" href=<%= new_post_path %> data-toggle="tab">New Post</a></li>
+  </ul>
+</div>
 
-          <!-- profile -->
-          <div class="col-md-3">
-            <%= render 'profile' %>
+<!-- post body -->
+<div class="card-body">
+  <div class="tab-content">
+    <div class="tab-pane active">
+
+      <!-- new post form -->
+      <%= form_with model: @post, class: "form-horizontal", local: true do |form| %>
+
+        <div class="form-group row">
+          <div class="col-sm-2">
+            <%= form.label :title, class: "col-form-label" %>
           </div>
-
-          <!-- post -->
-          <div class="col-md-9">
-            <div class="card">
-
-              <!-- post header -->
-              <div class="card-header p-2">
-                <ul class="nav nav-pills">
-                  <li class="nav-item"><a class="nav-link" href=<%= posts_path %> data-toggle="tab">Timeline</a></li>
-                  <li class="nav-item"><a class="nav-link active" href=<%= new_post_path %> data-toggle="tab">New Post</a></li>
-                </ul>
-              </div>
-
-              <!-- post body -->
-              <div class="card-body">
-                <div class="tab-content">
-                  <div class="tab-pane active">
-
-                    <!-- new post form -->
-                    <%= form_with model: @post, class: "form-horizontal", local: true do |form| %>
-
-                      <div class="form-group row">
-                        <div class="col-sm-2">
-                          <%= form.label :title, class: "col-form-label" %>
-                        </div>
-                        <div class="col-sm-10">
-                          <% if @post.errors[:title].any? %>
-                            <%= form.text_field :title, class: "form-control is-invalid", placeholder: "Title" %>
-                            <% @post.errors[:title].each do |msg| %>
-                              <div class="text-danger"><%= msg %></div>
-                            <% end %>
-                          <% else %>
-                            <%= form.text_field :title, class: "form-control", placeholder: "Title" %>
-                          <% end %>
-                        </div>
-                      </div>
-
-                      <div class="form-group row">
-                        <div class="col-sm-2">
-                          <%= form.label :text, class: "col-form-label" %>
-                        </div>
-                        <div class="col-sm-10">
-                          <% if @post.errors[:text].any? %>
-                            <%= form.text_area :text, class: "form-control is-invalid", placeholder: "Text", rows: "5" %>
-                            <% @post.errors[:text].each do |msg| %>
-                              <div class="text-danger"><%= msg %></div>
-                            <% end %>
-                          <% else %>
-                            <%= form.text_area :text, class: "form-control", placeholder: "Text", rows: "5" %>
-                          <% end %>
-                        </div>
-                      </div>
-
-                      <div class="form-group row">
-                        <div class="offset-sm-2 col-sm-10">
-                          <%= form.submit "Post", class: "btn btn-primary" %>
-                        </div>
-                      </div>
-                    <% end %>
-                    <!-- end new post form -->
-
-                  </div>
-                </div>
-              </div>
-              <!-- end post body -->
-
-            </div>
+          <div class="col-sm-10">
+            <% if @post.errors[:title].any? %>
+              <%= form.text_field :title, class: "form-control is-invalid", placeholder: "Title" %>
+              <% @post.errors[:title].each do |msg| %>
+                <div class="text-danger"><%= msg %></div>
+              <% end %>
+            <% else %>
+              <%= form.text_field :title, class: "form-control", placeholder: "Title" %>
+            <% end %>
           </div>
         </div>
-      </div>
-    </section>
+
+        <div class="form-group row">
+          <div class="col-sm-2">
+            <%= form.label :text, class: "col-form-label" %>
+          </div>
+          <div class="col-sm-10">
+            <% if @post.errors[:text].any? %>
+              <%= form.text_area :text, class: "form-control is-invalid", placeholder: "Text", rows: "5" %>
+              <% @post.errors[:text].each do |msg| %>
+                <div class="text-danger"><%= msg %></div>
+              <% end %>
+            <% else %>
+              <%= form.text_area :text, class: "form-control", placeholder: "Text", rows: "5" %>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <div class="offset-sm-2 col-sm-10">
+            <%= form.submit "Post", class: "btn btn-primary" %>
+          </div>
+        </div>
+      <% end %>
+      <!-- end new post form -->
+
+    </div>
   </div>
 </div>
+<!-- end post body -->
