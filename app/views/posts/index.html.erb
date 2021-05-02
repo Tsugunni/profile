@@ -57,9 +57,10 @@
                             <div class="timeline-body">
                               <%= post.text %>
                             </div>
+                            
                             <div class="timeline-footer">
-                              <a href="#" class="btn btn-primary btn-sm">Edit</a>
-                              <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                              <%= link_to 'Edit', edit_post_path(post), class: "btn btn-primary btn-sm" %>
+                              <%= link_to 'Delete', post_path(post), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm" %>
                             </div>
                           </div>
                         </div>
