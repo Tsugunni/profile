@@ -1,40 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | User Profile</title>
-
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <!-- <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css"> -->
-  <!-- Theme style -->
-  <!-- <link rel="stylesheet" href="../../dist/css/adminlte.min.css"> -->
-</head>
-<body>
 <div class="wrapper">
-  <!-- Content Wrapper. Contains page content -->
   <div>
-    <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
         <div class="row">
+
+          <!-- profile -->
           <div class="col-md-3">
             <%= render 'profile' %>
           </div>
-          <!-- /.col -->
+
+          <!-- post -->
           <div class="col-md-9">
             <div class="card">
+
+              <!-- post header -->
               <div class="card-header p-2">
                 <ul class="nav nav-pills">
                   <li class="nav-item"><a class="nav-link" href=<%= posts_path %> data-toggle="tab">Timeline</a></li>
                   <li class="nav-item"><a class="nav-link active" href=<%= new_post_path %> data-toggle="tab">New Post</a></li>
                 </ul>
-              </div><!-- /.card-header -->
+              </div>
+
+              <!-- post body -->
               <div class="card-body">
                 <div class="tab-content">
                   <div class="tab-pane active">
+
+                    <!-- new post form -->
                     <%= form_with model: @post, class: "form-horizontal", local: true do |form| %>
 
                       <div class="form-group row">
@@ -75,36 +67,17 @@
                         </div>
                       </div>
                     <% end %>
+                    <!-- end new post form -->
+
                   </div>
-                  <!-- /.tab-pane -->
                 </div>
-                <!-- /.tab-content -->
-              </div><!-- /.card-body -->
+              </div>
+              <!-- end post body -->
+
             </div>
-            <!-- /.card -->
           </div>
-          <!-- /.col -->
         </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
+      </div>
     </section>
-    <!-- /.content -->
   </div>
-  <!-- /.content-wrapper -->
-  
-
-  <!-- Control Sidebar -->
-  
 </div>
-<!-- ./wrapper -->
-
-<!-- jQuery -->
-<!-- <script src="../../plugins/jquery/jquery.min.js"></script> -->
-<!-- Bootstrap 4 -->
-<!-- <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script> -->
-<!-- AdminLTE App -->
-<!-- <script src="../../dist/js/adminlte.min.js"></script> -->
-<!-- AdminLTE for demo purposes -->
-<!-- <script src="../../dist/js/demo.js"></script> -->
-</body>
-</html>

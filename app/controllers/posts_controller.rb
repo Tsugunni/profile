@@ -4,12 +4,10 @@ class PostsController < ApplicationController
   end
 
   def new
-    puts "new---------"
     @post = Post.new
   end
 
   def create
-    puts "create-----------"
     @post = Post.new(post_params)
 
     if @post.save
